@@ -1,5 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:widgets_app/widgets/BottomSheetComponent.dart';
+import 'package:widgets_app/widgets/ProgressBarComponent.dart';
+import 'package:widgets_app/widgets/activityIndicator.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
 import 'package:widgets_app/widgets/card.dart';
 import 'package:widgets_app/widgets/sliderComponent.dart';
@@ -33,10 +36,17 @@ class _SliderPluginState extends State<SliderPlugin> {
                 : widget.images[pagePosition] == "card"
                     ? CardDesign()
                     : widget.images[pagePosition] == "slider"
-                        ?  sliderComponent()
-                        : GestureDetector(
-                            onTap: () => print(pagePosition),
-                            child: Image.network(widget.images[pagePosition]));
+                        ? sliderComponent()
+                        : widget.images[pagePosition] == "progressBar"
+                            ? ProgressBarComponent()
+                            : widget.images[pagePosition] == "activityIndicator"
+                                ? ActivityIndicator()
+                                : widget.images[pagePosition] == "Bottom Bar"
+                                    ? BottomSheetComponent(context)
+                                    : GestureDetector(
+                                        onTap: () => print(pagePosition),
+                                        child: Image.network(
+                                            widget.images[pagePosition]));
           }),
     );
   }

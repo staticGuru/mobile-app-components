@@ -14,13 +14,16 @@ class MyApp extends StatelessWidget {
     "https://images.unsplash.com/photo-1682685797406-97f364419b4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
     "https://wallpaperaccess.com/full/2637581.jpg",
     "card",
-    "slider"
+    "slider",
+    "progressBar",
+    "activityIndicator",
+    "Bottom Bar"
   ];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'React Native Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.

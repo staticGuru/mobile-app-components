@@ -40,9 +40,6 @@ class _AgePickerState extends State<AgePicker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Date of Birth Picker'),
-        ),
         body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Center(
