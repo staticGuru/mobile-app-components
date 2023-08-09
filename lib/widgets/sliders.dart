@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
 import 'package:widgets_app/widgets/card.dart';
+import 'package:widgets_app/widgets/sliderComponent.dart';
 
 class SliderPlugin extends StatefulWidget {
   const SliderPlugin({Key? key, required this.images}) : super(key: key);
@@ -31,9 +32,11 @@ class _SliderPluginState extends State<SliderPlugin> {
                 ? const AgePicker()
                 : widget.images[pagePosition] == "card"
                     ? CardDesign()
-                    : GestureDetector(
-                        onTap: () => print(pagePosition),
-                        child: Image.network(widget.images[pagePosition]));
+                    : widget.images[pagePosition] == "slider"
+                        ?  sliderComponent()
+                        : GestureDetector(
+                            onTap: () => print(pagePosition),
+                            child: Image.network(widget.images[pagePosition]));
           }),
     );
   }

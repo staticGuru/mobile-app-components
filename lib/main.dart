@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     "Age Picker",
     "https://images.unsplash.com/photo-1682685797406-97f364419b4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
     "https://wallpaperaccess.com/full/2637581.jpg",
-    "card"
+    "card",
+    "slider"
   ];
   // This widget is the root of your application.
   @override
