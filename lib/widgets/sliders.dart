@@ -6,6 +6,7 @@ import 'package:widgets_app/widgets/activityIndicator.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
 import 'package:widgets_app/widgets/card.dart';
 import 'package:widgets_app/widgets/sliderComponent.dart';
+import 'package:widgets_app/widgets/videoComponent.dart';
 
 class SliderPlugin extends StatefulWidget {
   const SliderPlugin({Key? key, required this.images}) : super(key: key);
@@ -43,10 +44,12 @@ class _SliderPluginState extends State<SliderPlugin> {
                                 ? ActivityIndicator()
                                 : widget.images[pagePosition] == "Bottom Bar"
                                     ? BottomSheetComponent(context)
-                                    : GestureDetector(
-                                        onTap: () => print(pagePosition),
-                                        child: Image.network(
-                                            widget.images[pagePosition]));
+                                    : widget.images[pagePosition] == "Video"
+                                        ? const VideoComponent()
+                                        : GestureDetector(
+                                            onTap: () => print(pagePosition),
+                                            child: Image.network(
+                                                widget.images[pagePosition]));
           }),
     );
   }
