@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     "progressBar",
     "activityIndicator",
     "Bottom Bar",
-    "Video"
+    "Video",
+    "audio"
   ];
   // This widget is the root of your application.
   @override
