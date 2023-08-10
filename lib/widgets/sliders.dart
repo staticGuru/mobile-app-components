@@ -4,6 +4,7 @@ import 'package:widgets_app/widgets/BottomSheetComponent.dart';
 import 'package:widgets_app/widgets/ProgressBarComponent.dart';
 import 'package:widgets_app/widgets/activityIndicator.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
+import 'package:widgets_app/widgets/audioComponent.dart';
 import 'package:widgets_app/widgets/card.dart';
 import 'package:widgets_app/widgets/sliderComponent.dart';
 import 'package:widgets_app/widgets/videoComponent.dart';
@@ -46,10 +47,13 @@ class _SliderPluginState extends State<SliderPlugin> {
                                     ? BottomSheetComponent(context)
                                     : widget.images[pagePosition] == "Video"
                                         ? const VideoComponent()
-                                        : GestureDetector(
-                                            onTap: () => print(pagePosition),
-                                            child: Image.network(
-                                                widget.images[pagePosition]));
+                                        : widget.images[pagePosition] == "audio"
+                                            ? AudioComponent()
+                                            : GestureDetector(
+                                                onTap: () =>
+                                                    print(pagePosition),
+                                                child: Image.network(widget
+                                                    .images[pagePosition]));
           }),
     );
   }
