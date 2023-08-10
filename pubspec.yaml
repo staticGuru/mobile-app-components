@@ -32,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_sound: ^9.2.13
   intl: ^0.18.1
   material: ^1.0.0+2
   pod_player: ^0.2.0
