@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
 
   List<String> images = [
     "Age Picker",
+    "listView",
     "https://images.unsplash.com/photo-1682685797406-97f364419b4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
     "https://wallpaperaccess.com/full/2637581.jpg",
     "card",
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     "activityIndicator",
     "Bottom Bar",
     "Video",
-    "audio"
+    "audio",
   ];
   // This widget is the root of your application.
   @override
@@ -44,6 +45,8 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        bottomSheetTheme: BottomSheetThemeData(
+            backgroundColor: Colors.redAccent.withOpacity(0.5)),
         useMaterial3: true,
       ),
       home: SliderPlugin(images: images),
