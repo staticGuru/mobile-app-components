@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets_app/widgets/BottomSheetComponent.dart';
+import 'package:widgets_app/widgets/ListViewContainer.dart';
 import 'package:widgets_app/widgets/ProgressBarComponent.dart';
 import 'package:widgets_app/widgets/activityIndicator.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
@@ -19,6 +20,7 @@ class SliderPlugin extends StatefulWidget {
 
 class _SliderPluginState extends State<SliderPlugin> {
   int activeSlide = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,6 @@ class _SliderPluginState extends State<SliderPlugin> {
           pageSnapping: true,
           onPageChanged: (value) {
             setState(() {
-              print(value);
               activeSlide = value;
             });
           },
@@ -49,12 +50,79 @@ class _SliderPluginState extends State<SliderPlugin> {
                                         ? const VideoComponent()
                                         : widget.images[pagePosition] == "audio"
                                             ? AudioComponent()
-                                            : GestureDetector(
-                                                onTap: () =>
-                                                    print(pagePosition),
-                                                child: Image.network(widget
-                                                    .images[pagePosition]));
+                                            : widget.images[pagePosition] ==
+                                                    "listView"
+                                                ? ListViewContainer()
+                                                : GestureDetector(
+                                                    onTap: () =>
+                                                        print(pagePosition),
+                                                    child: Image.network(widget
+                                                        .images[pagePosition]));
           }),
+      // bottomNavigationBar: Padding(
+      //   padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      //   child: Container(
+      //     height: 100,
+      //     decoration: BoxDecoration(
+      //       color: Colors.black87,
+      //       borderRadius: const BorderRadius.all(Radius.circular(40)),
+      //     ),
+      //     child: Padding(
+      //       padding: const EdgeInsets.symmetric(vertical: 10.0),
+      //       child: Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: [
+      //           Flex(direction: Axis.vertical, children: [
+      //              IconButton(
+      //               enableFeedback: false,
+      //               onPressed: () {},
+      //               icon: Icon(
+      //                 Icons.home_outlined,
+      //                 color: Colors.white60,
+      //                 size: 35,
+      //               ),
+      //             ),
+      //             const Text(
+      //               "Home",
+      //               style: TextStyle(color: Colors.white60),
+      //             )
+      //           ]),
+      //           Flex(direction: Axis.vertical, children: [
+      //             IconButton(
+      //               enableFeedback: false,
+      //               onPressed: () {},
+      //               icon: const Icon(
+      //                 Icons.work_outline_outlined,
+      //                 color: Colors.white60,
+      //                 size: 35,
+      //               ),
+      //             ),
+      //             const Text(
+      //               "Work",
+      //               style: TextStyle(color: Colors.white60),
+      //             )
+      //           ]),
+      //           Flex(direction: Axis.vertical, children: [
+      //             IconButton(
+      //               enableFeedback: false,
+      //               onPressed: () {},
+      //               icon: const Icon(
+      //                 Icons.widgets_outlined,
+      //                 color: Colors.white60,
+      //                 size: 35,
+      //               ),
+      //             ),
+      //             const Text(
+      //               "Widgets",
+      //               style: TextStyle(color: Colors.white60),
+      //             )
+      //           ]),
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

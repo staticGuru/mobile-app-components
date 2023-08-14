@@ -45,8 +45,11 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        bottomSheetTheme: BottomSheetThemeData(
-            backgroundColor: Colors.redAccent.withOpacity(0.5)),
+        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black54),
+        // primaryColor: Colors.tealAccent,
+        bottomAppBarTheme: const BottomAppBarTheme(
+            color: Colors.amberAccent, surfaceTintColor: Colors.blue),
+        // bottomAppBarColor: Colors.tealAccent,
         useMaterial3: true,
       ),
       home: SliderPlugin(images: images),
