@@ -47,8 +47,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black54),
         // primaryColor: Colors.tealAccent,
-        bottomAppBarTheme: const BottomAppBarTheme(
-            color: Colors.amberAccent, surfaceTintColor: Colors.blue),
         // bottomAppBarColor: Colors.tealAccent,
         useMaterial3: true,
       ),
