@@ -9,6 +9,7 @@ import 'package:widgets_app/widgets/activityIndicator.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
 import 'package:widgets_app/widgets/audioComponent.dart';
 import 'package:widgets_app/widgets/card.dart';
+import 'package:widgets_app/widgets/customForm.dart';
 import 'package:widgets_app/widgets/sliderComponent.dart';
 import 'package:widgets_app/widgets/videoComponent.dart';
 
@@ -47,36 +48,41 @@ class _SliderPluginState extends State<SliderPlugin> {
             });
           },
           itemBuilder: (context, pagePosition) {
-            return pagePosition == 0
+            return widget.images[pagePosition] == "Age Picker"
                 ? const AgePicker()
-                : widget.images[pagePosition] == "timePicker"
-                    ? TimePicker()
-                    : widget.images[pagePosition] == "card"
-                        ? CardDesign()
-                        : widget.images[pagePosition] == "slider"
-                            ? sliderComponent()
-                            : widget.images[pagePosition] == "progressBar"
-                                ? ProgressBarComponent()
-                                : widget.images[pagePosition] ==
-                                        "activityIndicator"
-                                    ? ActivityIndicator()
+                : widget.images[pagePosition] == "customForm"
+                    ? CustomForm()
+                    : widget.images[pagePosition] == "timePicker"
+                        ? TimePicker()
+                        : widget.images[pagePosition] == "card"
+                            ? CardDesign()
+                            : widget.images[pagePosition] == "slider"
+                                ? sliderComponent()
+                                : widget.images[pagePosition] == "progressBar"
+                                    ? ProgressBarComponent()
                                     : widget.images[pagePosition] ==
-                                            "Bottom Bar"
-                                        ? BottomSheetComponent(context)
-                                        : widget.images[pagePosition] == "Video"
-                                            ? const VideoComponent()
+                                            "activityIndicator"
+                                        ? ActivityIndicator()
+                                        : widget.images[pagePosition] ==
+                                                "Bottom Bar"
+                                            ? BottomSheetComponent(context)
                                             : widget.images[pagePosition] ==
-                                                    "audio"
-                                                ? AudioComponent()
+                                                    "Video"
+                                                ? const VideoComponent()
                                                 : widget.images[pagePosition] ==
-                                                        "listView"
-                                                    ? ListViewContainer()
-                                                    : GestureDetector(
-                                                        onTap: () =>
-                                                            print(pagePosition),
-                                                        child: Image.network(
-                                                            widget.images[
-                                                                pagePosition]));
+                                                        "audio"
+                                                    ? AudioComponent()
+                                                    : widget.images[
+                                                                pagePosition] ==
+                                                            "listView"
+                                                        ? ListViewContainer()
+                                                        : GestureDetector(
+                                                            onTap: () => print(
+                                                                pagePosition),
+                                                            child: Image
+                                                                .network(widget
+                                                                        .images[
+                                                                    pagePosition]));
           }),
     );
   }
