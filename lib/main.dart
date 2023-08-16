@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
 
   List<String> images = [
     "Age Picker",
+    "customForm",
     "timePicker",
     "listView",
     "https://images.unsplash.com/photo-1682685797406-97f364419b4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
