@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:widgets_app/widgets/BottomSheetComponent.dart';
 import 'package:widgets_app/widgets/ListViewContainer.dart';
 import 'package:widgets_app/widgets/ProgressBarComponent.dart';
@@ -12,8 +13,9 @@ import 'package:widgets_app/widgets/sliderComponent.dart';
 import 'package:widgets_app/widgets/videoComponent.dart';
 
 class SliderPlugin extends StatefulWidget {
-  const SliderPlugin({Key? key, required this.images}) : super(key: key);
-
+  const SliderPlugin({Key? key, required this.images, required this.value})
+      : super(key: key);
+  final bool value;
   final List images;
   @override
   State<SliderPlugin> createState() => _SliderPluginState();
@@ -25,7 +27,17 @@ class _SliderPluginState extends State<SliderPlugin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.images[activeSlide])),
+      appBar: AppBar(
+        title: Text(widget.images[activeSlide]),
+        actions: [
+          Switch(
+            value: widget.value,
+            onChanged: (val) {
+              Hive.box("hiveThemeBox").put('darkMode', !widget.value);
+            },
+          ),
+        ],
+      ),
       body: PageView.builder(
           itemCount: widget.images.length,
           pageSnapping: true,
