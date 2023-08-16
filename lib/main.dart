@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+// import 'package:hive/hive.dart';
 import 'package:widgets_app/widgets/agePicker.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:widgets_app/widgets/sliders.dart';
 
-void main() {
+const themeBox = 'hiveThemeBox';
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(themeBox);
   runApp(MyApp());
 }
 
@@ -26,33 +31,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'React Native Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black54),
-        // primaryColor: Colors.tealAccent,
-        // bottomAppBarColor: Colors.tealAccent,
-        useMaterial3: true,
-      ),
-      home: SliderPlugin(images: images),
-    );
+    return ValueListenableBuilder(
+        valueListenable: Hive.box(themeBox).listenable(),
+        builder: (context, box, widget) {
+          var darkMode =
+              Hive.box(themeBox).get('darkMode', defaultValue: false);
+
+          return MaterialApp(
+            title: 'React Native Demo',
+            debugShowCheckedModeBanner: false,
+            themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+            darkTheme: ThemeData.dark(),
+            home: SliderPlugin(images: images, value: darkMode),
+          );
+        });
   }
 }
 
